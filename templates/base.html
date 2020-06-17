@@ -21,9 +21,21 @@
             <a class="nav-link" href="{% url 'index' %}">Home</a>
         </li>
 
+        {% if user.is_authenticated %}
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'App_Login:logout' %}">Log out</a>
+        </li>
+
+        {% else %}
         <li class="nav-item ">
             <a class="nav-link" href="{% url 'App_Login:signup' %}">Sign Up</a>
         </li>
+
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'App_Login:login' %}">Log in</a>
+        </li>
+
+        {% endif %}
 
       </ul>
   </nav>
